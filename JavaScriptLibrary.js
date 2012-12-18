@@ -1,4 +1,5 @@
-/* JavaScriptLibrary designed for personal
+/* 
+ * JavaScriptLibrary designed for personal
  * ease of use in cross-browser hole filling
  * and simplification of some issues as well
  * as common operations.
@@ -23,7 +24,7 @@ for( var i = 0; i < GETpairs.length; i++ )
 {
     var pair = GETpairs[i].split('=');
     addBarVars[  decodeURI(pair[0]).replace(badChars,'')  ] =
-      	decodeURI(pair[1]).replace(badChars,'');
+    		decodeURI(pair[1]).replace(badChars,'');
 } 
 
  
@@ -62,7 +63,7 @@ function makeSelectTable(obtainElementsFunction, colors)
 	this.selectitems = arr;
 	for(i in arr)
 	{
-	if(!arr[i] || !arr[i].style) continue;
+		if(!arr[i] || !arr[i].style) continue;
 	
 		arr[i].oldClick = arr[i].onclick;
 		arr[i].arra =  obtainElementsFunction();
@@ -142,6 +143,7 @@ function makeSelectTable(obtainElementsFunction, colors)
 			{
 				this.selectitems[i].onclick(); return;
 			}
+			
 			if(this.selectitems[i] && this.selectitems[i].selectedvar)
 				isNext = true;
 		}
@@ -154,36 +156,36 @@ function addScript(filename)
 {
 	var ext = filename.split('.').pop();
 	var fileref;
-	if (ext == "js" || ext == "php")
-		{
+	if (ext == "js" || ext == "php") {
 			fileref = document.createElement('script');
 			fileref.setAttribute("type","text/javascript");
 			fileref.setAttribute("src", filename);
-		 }
-	else if (ext == "css")
-		{
+	} else if (ext == "css") {
 			fileref = document.createElement("link");
 			fileref.setAttribute("rel", "stylesheet");
 			fileref.setAttribute("type", "text/css");
 			fileref.setAttribute("href", filename);
-		}
-	if (typeof fileref != "undefined")
-		{
-			document.getElementsByTagName("head")[0].appendChild(fileref);
-			return fileref;
-		}
+	}
+	
+	if (typeof fileref != "undefined") {
+		document.getElementsByTagName("head")[0].appendChild(fileref);
+		return fileref;
+	}
 }
 
 // Dynamically add CSS code directly to the page.
 function addCss(cssCode) {
-var styleElement = document.createElement("style");
-  styleElement.type = "text/css";
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = cssCode;
-  } else {
-    styleElement.appendChild(document.createTextNode(cssCode));
-  }
-  document.getElementsByTagName("head")[0].appendChild(styleElement);
+	var styleElement = document.createElement("style");
+	
+	styleElement.type = "text/css";
+	
+	if (styleElement.styleSheet) {
+    	styleElement.styleSheet.cssText = cssCode;
+    } else {
+    	styleElement.appendChild(document.createTextNode(cssCode));
+    }
+    
+    document.getElementsByTagName("head")[0].appendChild(styleElement);
 }
 
 // Simple menu UI created when learning JavaScript
@@ -213,6 +215,7 @@ function makeMenu(item)
 	};
 	item.onmouseout = function () {
 		var children = this.childNodes;
+		
 		for(i in children)
 		{
 			if(children[i] && children[i].style)
@@ -239,9 +242,11 @@ function makeMenu(item)
 			}
 			
 		var grandchildren = children[i].childNodes;
+		
 		for(m in grandchildren)
 		{
-			if(grandchildren[m] && grandchildren[m].style) {
+			if(grandchildren[m] && grandchildren[m].style)
+			{
 				grandchildren[m].onmouseover = function() { this.style.background = "white";   };
 				grandchildren[m].onmouseout =  function() { this.style.background = "inherit"; };
 			}
