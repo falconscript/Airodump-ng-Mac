@@ -1,6 +1,6 @@
 # FILE LOCATION VARIABLES
 # May also add extra items, such as --bssid xx:xx:xx...
-TCPDUMP="./tcpdump"
+TCPDUMP="tcpdump"
 AIRODUMP="aircrack-ng-1.1/src/airodump-ng"
 REFRESH_RATE=1                        # Too low may hit race condition
 
